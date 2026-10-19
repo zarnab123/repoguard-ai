@@ -10,11 +10,20 @@ load_dotenv()
 
 def generate_ai_report(audit_report: dict) -> str:
     """Turn evidence from the audit engine into a useful AI report."""
+
     api_key = os.getenv("GROQ_API_KEY")
 
     if not api_key:
-        raise ValueError("GROQ_API_KEY is missing. Add it to your .env file.")
+        try:
+            import streamlit as st
+            api_key = st.secrets.get("GROQ_API_KEY")
+        except Exception:
+            pass
 
+    if not api_key:
+        raise ValueError(
+            "GROQ_API_KEY is missing. Add it to .env locally or Streamlit Secrets."
+        )
     prompt = f"""
 You are RepoGuard AI, a helpful software engineering reviewer.
 
