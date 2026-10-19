@@ -3,6 +3,9 @@
 An AI-powered repository auditing tool that reviews a public GitHub repository for practical engineering standards and generates evidence-based improvement recommendations.
 
 RepoGuard AI safely performs a shallow, read-only clone of a public repository. It never runs or modifies the target project's code.
+## Live Demo
+
+🔗 [Open RepoGuard AI](https://zarnab-repoguard-ai-app.streamlit.app/)
 
 ## Why this project?
 
